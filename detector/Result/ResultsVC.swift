@@ -11,6 +11,7 @@ class ResultsVC: UIViewController, UITableViewDataSource,UITableViewDelegate{
     @IBOutlet weak var tableView: UITableView!
     private let resultsView = viewResult()
     var result: [ViewResults] = []
+    let simpleBluetoothIO = BluetoothManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self

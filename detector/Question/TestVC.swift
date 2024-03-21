@@ -16,13 +16,13 @@ class TestVC: UIViewController, UITableViewDataSource, UITableViewDelegate, CBCe
       var activityIndicator: UIActivityIndicatorView!
     var simpleBluetoothIO: BluetoothManager!
     private let question = OnlineQuestion()
+    static var array: [String] = []
       override func viewDidLoad() {
           super.viewDidLoad()
           navigationItem.hidesBackButton = true
           setupUI()
           fetchData()
           simpleBluetoothIO = BluetoothManager()
-          simpleBluetoothIO.centralManager.delegate = self
        
       }
       
@@ -59,7 +59,10 @@ class TestVC: UIViewController, UITableViewDataSource, UITableViewDelegate, CBCe
         let message = "stop"
         if let data = message.data(using: .utf8) {
             simpleBluetoothIO.sendDataToPeripheral(data: data)
-        }}
+        }
+        TestVC.array = simpleBluetoothIO.receivedDataArray
+        print(simpleBluetoothIO.receivedDataArray)
+    }
     @IBAction private func resultsButton(){
         let storyboard = UIStoryboard(name: "ResultsStorybord", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "ResultsVC") as? ResultsVC {

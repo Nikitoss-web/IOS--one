@@ -61,11 +61,16 @@ class XibTimers: UIView {
     
     private var countdownTimer: Timer?
     private var secondsRemaining = 10
+    static var arrayECG: [String] = []
     var removeFromSuperviewClosure: (() -> Void)?
-       
+    var simpleBluetoothIO: BluetoothManager!
+    var calculat = CalculatingResult()
+    static var maxECG:Int = 0
        override func awakeFromNib() {
            super.awakeFromNib()
+           simpleBluetoothIO = BluetoothManager()
            startCountdown()
+           
        }
        
        private func startCountdown() {
@@ -74,13 +79,26 @@ class XibTimers: UIView {
                if self.secondsRemaining > 0 {
                    self.secondsRemaining -= 1
                    self.timerLabel.text = "\(self.secondsRemaining)"
+                   let message = "start"
+                   if let data = message.data(using: .utf8) {
+                       simpleBluetoothIO.sendDataToPeripheral(data: data)
+                   }
                } else {
                    timer.invalidate()
                    self.removeFromSuperviewClosure?() 
                    
-
+                   let message = "stop"
+                   if let data = message.data(using: .utf8) {
+                       simpleBluetoothIO.sendDataToPeripheral(data: data)
+                   }
+                   XibTimers.arrayECG = simpleBluetoothIO.receivedDataArray
+                   print(simpleBluetoothIO.receivedDataArray)
+                   XibTimers.maxECG = calculat.maxArray(StringArray: simpleBluetoothIO.receivedDataArray) ?? 0
+                   simpleBluetoothIO.receivedDataArray.removeAll()
                }
            }
+           
+           
        }
        
     

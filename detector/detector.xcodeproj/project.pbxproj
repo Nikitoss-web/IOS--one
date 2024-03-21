@@ -34,6 +34,7 @@
 		449F61B12B6BC3580021DD7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449F61AF2B6BC3580021DD7A /* Main.storyboard */; };
 		449F61B32B6BC35A0021DD7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 449F61B22B6BC35A0021DD7A /* Assets.xcassets */; };
 		449F61B62B6BC35A0021DD7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449F61B42B6BC35A0021DD7A /* LaunchScreen.storyboard */; };
+		44A68BEA2BA58D020048C834 /* CalculatingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A68BE92BA58D020048C834 /* CalculatingResult.swift */; };
 		44AC8A732B8C8943008BC114 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44AC8A712B8C8943008BC114 /* CoreData.xcdatamodeld */; };
 		44AC8A832B8C93B1008BC114 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AC8A822B8C93B1008BC114 /* CoreDataService.swift */; };
 		44AF3E542B990950007FD097 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AF3E532B990950007FD097 /* KeychainManager.swift */; };
@@ -81,6 +82,7 @@
 		449F61B22B6BC35A0021DD7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		449F61B52B6BC35A0021DD7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		449F61B72B6BC35A0021DD7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A68BE92BA58D020048C834 /* CalculatingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatingResult.swift; sourceTree = "<group>"; };
 		44AC8A722B8C8943008BC114 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		44AC8A822B8C93B1008BC114 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		44AF3E532B990950007FD097 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainManager.swift; path = Logen/KeychainManager.swift; sourceTree = SOURCE_ROOT; };
@@ -169,6 +171,7 @@
 				44DF697A2B9F2BCF004EB549 /* XibTimers.swift */,
 				44DF697C2B9F2BF0004EB549 /* XibTimers.xib */,
 				44FC4D952BA0B557003F4D87 /* ECGData.swift */,
+				44A68BE92BA58D020048C834 /* CalculatingResult.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				4404510F2B6C3F2B005252A3 /* OnlineAuthorization.swift in Sources */,
 				44C489352B6CFFB200EE49F3 /* TestVC.swift in Sources */,
 				44833DBD2B8CAD5C00B15D9F /* Results+CoreDataProperties.swift in Sources */,
+				44A68BEA2BA58D020048C834 /* CalculatingResult.swift in Sources */,
 				4427B4F52B72419300DBDC77 /* OnlineNameTest.swift in Sources */,
 				44AC8A832B8C93B1008BC114 /* CoreDataService.swift in Sources */,
 				44DF697B2B9F2BCF004EB549 /* XibTimers.swift in Sources */,

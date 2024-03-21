@@ -18,6 +18,7 @@ class ReportVC: UIViewController {
     var currentAnswer = ""
     var questions: [String] = []
     var answers: [String] = []
+    let simpleBluetoothIO = BluetoothManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         report.outputResults(selectedResult: selectedResult, nameLable: nameLable, lastnameLable: lastnameLable, ageLable: ageLable, questions: &questions, answers: &answers, questionField: questionField)

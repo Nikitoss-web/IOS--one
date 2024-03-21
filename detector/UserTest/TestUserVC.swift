@@ -20,6 +20,7 @@ class TestUserVC: UIViewController {
     var questions: [String] = []
     var answers: [String] = []
     private let resultsRecording = RecordingResults()
+    let simpleBluetoothIO = BluetoothManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
