@@ -12,17 +12,12 @@ class ReportVC: UIViewController {
     @IBOutlet private weak var lastnameLable: UILabel!
     @IBOutlet private weak var ageLable: UILabel!
     @IBOutlet private weak var questionField: UITextView!
-    private let report = Report()
+    private let viewModel = ReportVCModel()
     var selectedResult: ViewResults?
-    var currentQuestion = ""
-    var currentAnswer = ""
-    var questions: [String] = []
-    var answers: [String] = []
-    let simpleBluetoothIO = BluetoothManager()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        report.outputResults(selectedResult: selectedResult, nameLable: nameLable, lastnameLable: lastnameLable, ageLable: ageLable, questions: &questions, answers: &answers, questionField: questionField)
-       
-    }
+       override func viewDidLoad() {
+           super.viewDidLoad()
+           
+           viewModel.setupReport(selectedResult: selectedResult, nameLable: nameLable, lastnameLable: lastnameLable, ageLable: ageLable, questionField: questionField)
+       }
 
 }

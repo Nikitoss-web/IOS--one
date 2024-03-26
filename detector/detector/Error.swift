@@ -16,10 +16,11 @@ class AlertManager {
          viewController?.present(alert, animated: true)
     }
 
-    static func showAlert(viewController: UIViewController?) {
-        let alert = UIAlertController(title: "You have registered", message: "The user is registered", preferredStyle: .alert)
+    static func showAlert(viewController: UIViewController?, message: String) -> Bool {
+        let alert = UIAlertController(title: !message.isEmpty ? message : "You have registered", message: nil ,  preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okButton)
          viewController?.present(alert, animated: true)
+        return message.isEmpty ? true : false
     }
 }

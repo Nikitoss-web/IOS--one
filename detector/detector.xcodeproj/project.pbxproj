@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4402E96B2BB328A700905BD6 /* TestVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4402E96A2BB328A700905BD6 /* TestVCModel.swift */; };
+		4402E96E2BB32A0900905BD6 /* SettingsVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4402E96D2BB32A0900905BD6 /* SettingsVCModel.swift */; };
+		4402E9712BB3319800905BD6 /* TestUserVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4402E9702BB3319800905BD6 /* TestUserVCModel.swift */; };
+		4402E9732BB3329900905BD6 /* ReportVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4402E9722BB3329900905BD6 /* ReportVCModel.swift */; };
 		440451072B6C33E4005252A3 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440451062B6C33E4005252A3 /* Registration.swift */; };
 		4404510B2B6C35A3005252A3 /* NetworkСonnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404510A2B6C35A3005252A3 /* NetworkСonnection.swift */; };
 		4404510F2B6C3F2B005252A3 /* OnlineAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404510E2B6C3F2B005252A3 /* OnlineAuthorization.swift */; };
 		4404511A2B6C49AB005252A3 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440451192B6C49AB005252A3 /* RegistrationVC.swift */; };
 		4404511D2B6C598B005252A3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404511C2B6C598B005252A3 /* Error.swift */; };
+		44143B572BAE0DA1009166A0 /* AllTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44143B562BAE0DA1009166A0 /* AllTestViewModel.swift */; };
 		441FC57D2B7B8F340099D49F /* ResultsStorybord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 441FC57C2B7B8F340099D49F /* ResultsStorybord.storyboard */; };
 		441FC5812B7B8FCD0099D49F /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FC5802B7B8FCD0099D49F /* ResultsVC.swift */; };
 		44238D2A2B74EECD008160E7 /* TestUserRegistration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44238D292B74EECD008160E7 /* TestUserRegistration.storyboard */; };
@@ -53,11 +58,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4402E96A2BB328A700905BD6 /* TestVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVCModel.swift; sourceTree = "<group>"; };
+		4402E96D2BB32A0900905BD6 /* SettingsVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCModel.swift; sourceTree = "<group>"; };
+		4402E9702BB3319800905BD6 /* TestUserVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserVCModel.swift; sourceTree = "<group>"; };
+		4402E9722BB3329900905BD6 /* ReportVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportVCModel.swift; sourceTree = "<group>"; };
 		440451062B6C33E4005252A3 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		4404510A2B6C35A3005252A3 /* NetworkСonnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NetworkСonnection.swift"; path = "../NetworkСonnection.swift"; sourceTree = "<group>"; };
 		4404510E2B6C3F2B005252A3 /* OnlineAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineAuthorization.swift; sourceTree = "<group>"; };
 		440451192B6C49AB005252A3 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		4404511C2B6C598B005252A3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		44143B562BAE0DA1009166A0 /* AllTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTestViewModel.swift; sourceTree = "<group>"; };
 		441FC57C2B7B8F340099D49F /* ResultsStorybord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResultsStorybord.storyboard; sourceTree = "<group>"; };
 		441FC5802B7B8FCD0099D49F /* ResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
 		44238D292B74EECD008160E7 /* TestUserRegistration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestUserRegistration.storyboard; sourceTree = "<group>"; };
@@ -138,8 +148,9 @@
 				44843BFE2B7A47F200C330D2 /*  ViewResults.swift */,
 				44B1A45D2B990E8E000E534B /* Report.swift */,
 				441FC5802B7B8FCD0099D49F /* ResultsVC.swift */,
-				442653592B7E30C200D35AEB /* ReportVC.swift */,
 				441FC57C2B7B8F340099D49F /* ResultsStorybord.storyboard */,
+				442653592B7E30C200D35AEB /* ReportVC.swift */,
+				4402E9722BB3329900905BD6 /* ReportVCModel.swift */,
 			);
 			path = Result;
 			sourceTree = SOURCE_ROOT;
@@ -158,7 +169,9 @@
 			children = (
 				44C4892D2B6CEB1E00EE49F3 /* MainStorybord.storyboard */,
 				44C489342B6CFFB200EE49F3 /* TestVC.swift */,
+				4402E96A2BB328A700905BD6 /* TestVCModel.swift */,
 				44C4892F2B6CEB3300EE49F3 /* SettingsVС.swift */,
+				4402E96D2BB32A0900905BD6 /* SettingsVCModel.swift */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -168,6 +181,7 @@
 			children = (
 				4427B51F2B73903D00DBDC77 /* AllTestStoryboard.storyboard */,
 				4427B5212B73907800DBDC77 /* AllTestVC.swift */,
+				44143B562BAE0DA1009166A0 /* AllTestViewModel.swift */,
 				44DF697A2B9F2BCF004EB549 /* XibTimers.swift */,
 				44DF697C2B9F2BF0004EB549 /* XibTimers.xib */,
 				44FC4D952BA0B557003F4D87 /* ECGData.swift */,
@@ -181,6 +195,7 @@
 			children = (
 				44238D292B74EECD008160E7 /* TestUserRegistration.storyboard */,
 				44238D2D2B74F081008160E7 /* TestUserVC.swift */,
+				4402E9702BB3319800905BD6 /* TestUserVCModel.swift */,
 			);
 			path = UserTest;
 			sourceTree = "<group>";
@@ -349,10 +364,12 @@
 				4427B4F52B72419300DBDC77 /* OnlineNameTest.swift in Sources */,
 				44AC8A832B8C93B1008BC114 /* CoreDataService.swift in Sources */,
 				44DF697B2B9F2BCF004EB549 /* XibTimers.swift in Sources */,
+				4402E96B2BB328A700905BD6 /* TestVCModel.swift in Sources */,
 				4427B4F72B724F2500DBDC77 /* RequestOnline.swift in Sources */,
 				44238D2E2B74F081008160E7 /* TestUserVC.swift in Sources */,
 				440451072B6C33E4005252A3 /* Registration.swift in Sources */,
 				44AF3E542B990950007FD097 /* KeychainManager.swift in Sources */,
+				44143B572BAE0DA1009166A0 /* AllTestViewModel.swift in Sources */,
 				44843BFD2B7A2D3C00C330D2 /* RecordingResults.swift in Sources */,
 				44833DBE2B8CAD5C00B15D9F /* NameTest+CoreDataClass.swift in Sources */,
 				44B1A45C2B990B23000E534B /* LoginVC.swift in Sources */,
@@ -360,8 +377,11 @@
 				44C489302B6CEB3300EE49F3 /* SettingsVС.swift in Sources */,
 				4404511D2B6C598B005252A3 /* Error.swift in Sources */,
 				44FC4D962BA0B557003F4D87 /* ECGData.swift in Sources */,
+				4402E96E2BB32A0900905BD6 /* SettingsVCModel.swift in Sources */,
+				4402E9732BB3329900905BD6 /* ReportVCModel.swift in Sources */,
 				441FC5812B7B8FCD0099D49F /* ResultsVC.swift in Sources */,
 				4426535A2B7E30C200D35AEB /* ReportVC.swift in Sources */,
+				4402E9712BB3319800905BD6 /* TestUserVCModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

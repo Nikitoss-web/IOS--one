@@ -20,13 +20,17 @@ class LoginVC: UIViewController {
     }
     @IBAction private func closeButton(){
         if (passwordAU.text?.isEmpty == false), (loginText.text?.isEmpty == false) {
-            networkAut.connectionAUT(password: passwordAU.text!, login: loginText.text! , setting: networkAut.logins())
-            let mainStorybord = UIStoryboard(name: "MainStorybord", bundle: nil)
-            let registrationVC = mainStorybord.instantiateViewController(identifier: "TestVC")
-            navigationController?.pushViewController(registrationVC, animated: true)
-
-            
-        } else {
+            networkAut.connectionAUT(password: passwordAU.text!, login: loginText.text! , setting: networkAut.logins()){ message, error in
+                if let message = message {
+                    DispatchQueue.main.async {
+                        let mainStorybord = UIStoryboard(name: "MainStorybord", bundle: nil)
+                        let registrationVC = mainStorybord.instantiateViewController(identifier: "TestVC")
+                        let alert = AlertManager.showAlert(viewController: self, message: message)
+                        self.navigationController?.pushViewController(registrationVC, animated: true)}
+                    
+                }
+                
+            }} else {
             AlertManager.notShowAlert(viewController: self)
         }
     }

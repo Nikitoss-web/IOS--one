@@ -14,7 +14,7 @@ final class NetworkСonnection{
     }
     
     
-    func connection(password: String, email: String, name: String, setting: String){
+    func connection(password: String, email: String, name: String, setting: String, completion: @escaping (String?, Error?) -> Void){
         guard let url = URL(string: setting ) else {
             return
         }
@@ -28,13 +28,21 @@ final class NetworkСonnection{
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             } else if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                    print("Response: \(json ?? [:])")
-                } catch {
-                    print("Error: \(error.localizedDescription)")
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            if let message = json["message"] as? String, let code = json["code"] as? Int {
+                                
+                                    return  completion(message, nil)
+                                }
+                            else {
+                                return completion("", nil)
+                            }
+                            
+                        }
+                    } catch {
+                        print("Error: \(error.localizedDescription)")
+                    }
                 }
-            }
         }
         
         task.resume()

@@ -11,7 +11,7 @@ final class NetworkСonnectionAU{
     func logins() -> String{
         return "https://morallaugh.backendless.app/api/users/login"
     }
-    func connectionAUT(password: String, login: String, setting: String){
+    func connectionAUT(password: String, login: String, setting: String, completion: @escaping (String?, Error?) -> Void){
         guard let url = URL(string: setting) else {
             print("Некорректный URL")
             return
@@ -24,23 +24,28 @@ final class NetworkСonnectionAU{
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                // Обработка ошибки соединения или запроса
                 print("Ошибка: \(error.localizedDescription)")
             } else if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                    
+                    print("Ответ: \(json ?? [:])")
                     if let token = json?["user-token"] as? String {
-                        KeychainManager.delete(account: "userToken") // Удаляем существующий токен, если он есть
+                        KeychainManager.delete(account: "userToken")
                         KeychainManager.save(password: token.data(using: .utf8) ?? Data(), account: "userToken")
                     }
 
                     if let id = json?["objectId"] as? String {
-                        KeychainManager.delete(account: "userId") // Удаляем существующий идентификатор, если он есть
+                        KeychainManager.delete(account: "userId")
                         KeychainManager.save(password: id.data(using: .utf8) ?? Data(), account: "userId")
                     }
-                    
-                    print("Ответ: \(json ?? [:])")
+                    if  let code = json?["code"] as? Int, let message = json?["message"] as? String {
+                        print(message)
+                           return  completion(message, nil)
+                        }
+                    else {
+                        return completion("", nil)
+                    }
+                  
                     
                 } catch {
                     print("Ошибка: \(error.localizedDescription)")

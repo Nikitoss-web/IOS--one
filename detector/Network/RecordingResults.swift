@@ -1,17 +1,3 @@
-//
-//  RecordingResults.swift
-//  detector
-//
-//  Created by НИКИТА ПЕСНЯК on 12.02.24.
-//
-
-//
-//  NetworkСonnectionAUT.swift
-//  detector
-//
-//  Created by НИКИТА ПЕСНЯК on 2.02.24.
-//
-
 import Foundation
 struct Recording : Encodable{
     var name: String
@@ -35,7 +21,7 @@ class RecordingResults{
         }
         
         var recording = recording
-        recording.ownerId = userId // Присваиваем userId значению objectId в объекте recording.
+        recording.ownerId = userId 
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

@@ -39,14 +39,14 @@ class ResultsVC: UIViewController, UITableViewDataSource,UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "YourCellIdentifier3", for: indexPath) as! ResultTableViewCell
         
         let results = result[indexPath.row]
-        cell.nameLable.text = results.Name// Назначаем этот ответ текстом ячейки
+        cell.nameLable.text = results.Name
         cell.lastnameLable.text = results.Lastname
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedResult = result[indexPath.row]
         
-        let storyboard = UIStoryboard(name: "ResultsStorybord", bundle: nil) // Тут исправлен неправильный нейминг Storyboard'а
+        let storyboard = UIStoryboard(name: "ResultsStorybord", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "ReportVC") as? ReportVC {
             vc.selectedResult = selectedResult
             navigationController?.pushViewController(vc, animated: true)

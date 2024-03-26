@@ -58,25 +58,6 @@
                                     <action selector="exitButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wzo-NY-pc9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM2-eh-VHh">
-                                <rect key="frame" x="274" y="80" width="75" height="35"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="button" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gFv-5f-Wat"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziq-J4-0d6">
-                                <rect key="frame" x="159" y="80" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.081565405620000003" green="0.42719537019999998" blue="0.0780282011" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="buttons" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Me3-Vc-AGh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,8 +67,6 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="unj-2r-dei" secondAttribute="bottom" constant="47" id="Gaa-LU-bPX"/>
                             <constraint firstItem="me1-c3-VWP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Ir2-hM-6hD"/>
                             <constraint firstItem="unj-2r-dei" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QaR-uL-5M4"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tM2-eh-VHh" secondAttribute="trailing" constant="44" id="TGM-AV-p0e"/>
-                            <constraint firstItem="tM2-eh-VHh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="21" id="W9w-BN-Qnd"/>
                             <constraint firstItem="unj-2r-dei" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="YMv-h5-4ob"/>
                             <constraint firstItem="me1-c3-VWP" firstAttribute="top" secondItem="unj-2r-dei" secondAttribute="bottom" constant="2" id="ZQ2-NN-BFf"/>
                             <constraint firstItem="unj-2r-dei" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="101" id="bGy-VW-rQv"/>
@@ -142,7 +121,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start test"/>
                                 <connections>
-                                    <action selector="startTestButton" destination="nRn-X3-8by" eventType="touchUpInside" id="pbw-B6-DzJ"/>
+                                    <action selector="startTestButton" destination="nRn-X3-8by" eventType="touchUpInside" id="YcH-iS-77B"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -171,9 +150,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

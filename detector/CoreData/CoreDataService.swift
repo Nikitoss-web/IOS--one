@@ -188,7 +188,6 @@ final class CoreDataService {
             for question in allQuestions {
                 print("Questions: \(question.questions ?? "No questions")")
                 print("Owner ID: \(question.ownerId ?? "No owner ID")")
-                // Выводите другие свойства вашей сущности, если они есть
                 print("-------------")
             }
         } catch {

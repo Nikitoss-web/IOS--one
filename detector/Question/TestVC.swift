@@ -44,25 +44,6 @@ class TestVC: UIViewController, UITableViewDataSource, UITableViewDelegate, CBCe
             tableView.dataSource = self
             tableView.delegate = self
         }
-    @IBAction private func button(){
-        
-        let message = "start"
-        if let data = message.data(using: .utf8) {
-            simpleBluetoothIO.sendDataToPeripheral(data: data)
-        }
-       
-        
-        
-    }
-    @IBAction private func buttons(){
-        
-        let message = "stop"
-        if let data = message.data(using: .utf8) {
-            simpleBluetoothIO.sendDataToPeripheral(data: data)
-        }
-        TestVC.array = simpleBluetoothIO.receivedDataArray
-        print(simpleBluetoothIO.receivedDataArray)
-    }
     @IBAction private func resultsButton(){
         let storyboard = UIStoryboard(name: "ResultsStorybord", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "ResultsVC") as? ResultsVC {
@@ -84,7 +65,6 @@ class TestVC: UIViewController, UITableViewDataSource, UITableViewDelegate, CBCe
                     self?.tests = questions.map { Test(name_test: $0, test_number: nil, objectId: "") }
                     self?.tableView.reloadData()
                 }
-                
                 self?.activityIndicator.stopAnimating()
                 self?.activityIndicator.removeFromSuperview()
             }
@@ -105,8 +85,6 @@ class TestVC: UIViewController, UITableViewDataSource, UITableViewDelegate, CBCe
             let objectId = tests[indexPath.row].objectId
             let name_test = tests[indexPath.row].name_test
             let storyboard = UIStoryboard(name: "MainStorybord", bundle: nil)
-            
-
             if let vc = storyboard.instantiateViewController(withIdentifier: "SettingsVС") as? SettingsVС {
                 vc.updateData(withObjectId: objectId)
                 vc.name_test = name_test

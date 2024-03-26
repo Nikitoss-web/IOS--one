@@ -22,19 +22,8 @@ class CalculatingResult{
         return intArray.max() ?? 0
     }
     
-    func responseResult(resultView: UIView!, array: [String], maxECG: Int){
-        if let answerArray = maxArray(StringArray: array){
-            if answerArray <= maxECG{
-                resultView.backgroundColor = .green
-            }
-            else{
-                resultView.backgroundColor = .red
-            }
-            
-            
-            
-        }
+    func responseResult( array: [String], maxECG: Int) -> Bool{
+        guard let answerArray = maxArray(StringArray: array) else {return false}
+        return answerArray <= maxECG
     }
-    
-    
 }
