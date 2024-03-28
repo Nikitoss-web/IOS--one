@@ -5,10 +5,6 @@ class AllTestVC: UIViewController{
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
     @IBOutlet weak var resultView: UIView!
-    var objectId: String?
-    var questions: [String] = []
-    var answers: [String] = []
-    var responseResult: [String] = []
     private var viewModel: AllTestViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,18 +56,18 @@ class AllTestVC: UIViewController{
     }
     
     private func recordAnswer(answer: String) {
-        answers.append(answer)
+        AllTestViewModel.answers.append(answer)
     }
     
     
     private func showNextQuestion() {
-        guard let currentQuestionIndex = questions.firstIndex(where: { $0 == textLable.text }) else {
+        guard let currentQuestionIndex = AllTestViewModel.questions.firstIndex(where: { $0 == textLable.text }) else {
             return
         }
         
         let nextQuestionIndex = currentQuestionIndex + 1
-        if nextQuestionIndex < questions.count {
-            let nextQuestion = questions[nextQuestionIndex]
+        if nextQuestionIndex < AllTestViewModel.questions.count {
+            let nextQuestion = AllTestViewModel.questions[nextQuestionIndex]
             
             UIView.transition(with: textLable, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.textLable.text = nextQuestion
@@ -82,8 +78,8 @@ class AllTestVC: UIViewController{
         } else {
             let storyboard = UIStoryboard(name: "TestUserRegistration", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "TestUserVC") as? TestUserVC {
-                vc.questions = questions
-                vc.answers = answers
+                vc.questions = AllTestViewModel.questions
+                vc.answers = AllTestViewModel.answers
                 navigationController?.pushViewController(vc, animated: true)
             }
         }
@@ -109,7 +105,7 @@ class AllTestVC: UIViewController{
     private func setupApperense(){
         navigationItem.hidesBackButton = true
         resultView.backgroundColor = .white
-        if let firstQuestion = questions.first {
+        if let firstQuestion = AllTestViewModel.questions.first {
             textLable.text = firstQuestion
         }
     }

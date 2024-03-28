@@ -13,11 +13,10 @@ class ReportVC: UIViewController {
     @IBOutlet private weak var ageLable: UILabel!
     @IBOutlet private weak var questionField: UITextView!
     private let viewModel = ReportVCModel()
-    var selectedResult: ViewResults?
        override func viewDidLoad() {
            super.viewDidLoad()
            
-           viewModel.setupReport(selectedResult: selectedResult, nameLable: nameLable, lastnameLable: lastnameLable, ageLable: ageLable, questionField: questionField)
+           viewModel.setupReport(selectedResult: ReportVCModel.selectedResult, nameLable: nameLable, lastnameLable: lastnameLable, ageLable: ageLable, questionField: questionField)
        }
 
 }

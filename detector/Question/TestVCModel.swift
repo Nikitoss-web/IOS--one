@@ -1,43 +1,41 @@
-//import Foundation
-//import UIKit
-//
-//class TestViewModel {
-//    private var tests: [Test] = []
-//    private let question = OnlineQuestion()
-//    
-//    var testsCount: Int {
-//        return tests.count
-//    }
-//    
-//    func testName(at index: Int) -> String {
-//        return tests[index].name_test
-//    }
-//    
-//    func fetchData(completion: @escaping () -> Void) {
-//        question.fetchDataFromBackendless(token: String(decoding: KeychainManager.getPassword(for: "userToken") ?? Data(), as: UTF8.self)) { [weak self] test in
-//            if let tests = test {
-//                self?.tests = tests
-//            } else {
-//                let questions = CoreDataService.shared.fetchQuestions()
-//                self?.tests = questions.map { Test(name_test: $0, test_number: nil, objectId: "") }
-//            }
-//            completion()
-//        }
-//    }
-//    
-//    func showResults() {
-//        let storyboard = UIStoryboard(name: "ResultsStorybord", bundle: nil)
-//        if storyboard.instantiateViewController(withIdentifier: "ResultsVC") is ResultsVC {
-//        }
-//    }
-//    
-//    func didSelectTest(at index: Int) {
-//        let objectId = tests[index].objectId
-//        let name_test = tests[index].name_test
-//        let storyboard = UIStoryboard(name: "MainStorybord", bundle: nil)
-//        if let vc = storyboard.instantiateViewController(withIdentifier: "SettingsVС") as? SettingsVС {
-//            vc.updateData(withObjectId: objectId)
-//            vc.name_test = name_test
-//        }
-//    }
-//}
+import Foundation
+import UIKit
+class TestVCModel{
+    var tests: [Test] = []
+    var result: [ViewResults] = []
+    private let question = OnlineQuestion()
+    var simpleBluetoothIO =  BluetoothManager()
+    private weak var navigationController: UINavigationController?
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var testsCount: Int {
+        return tests.count
+    }
+    func  testName(at index: Int) -> String {
+        return tests[index].name_test
+    }
+    func  objectId(at index: Int) -> String {
+        return tests[index].objectId
+    }
+    func fetchData(tableView: UITableView!) {
+        question.fetchDataFromBackendless(token: String(decoding: KeychainManager.getPassword(for: "userToken") ?? Data(), as: UTF8.self)) { [weak self] test in
+            DispatchQueue.main.async {
+                if let tests = test {
+                    self?.tests = tests
+                    tableView.reloadData()
+                    
+                } else {
+                    let questions = CoreDataService.shared.fetchQuestions()
+                    self?.tests = questions.map { Test(name_test: $0, test_number: nil, objectId: "") }
+                    tableView.reloadData()
+                }
+                self?.activityIndicator.stopAnimating()
+                self?.activityIndicator.removeFromSuperview()
+            }
+        }
+    }
+    func transferSettingsVС(at index: Int, viewController: SettingsVС) {
+        SettingsViewModel.objectId = objectId(at: index)
+        SettingsViewModel.name_test = testName(at: index)
+    }
+    }
+

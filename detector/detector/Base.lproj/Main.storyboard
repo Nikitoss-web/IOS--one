@@ -197,7 +197,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                                 <connections>
-                                    <action selector="closeButton" destination="VVn-RX-Wlo" eventType="touchUpInside" id="6AM-G5-xDR"/>
+                                    <action selector="closeButton" destination="VVn-RX-Wlo" eventType="touchUpInside" id="4uj-kH-Baf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvQ-1G-pVI">
@@ -207,7 +207,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Cansel"/>
                                 <connections>
-                                    <action selector="cansel" destination="VVn-RX-Wlo" eventType="touchUpInside" id="sLs-Bf-9sK"/>
+                                    <action selector="cansel" destination="VVn-RX-Wlo" eventType="touchUpInside" id="rcI-tj-Tho"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcC-sK-pGw">
@@ -242,8 +242,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginText" destination="vKD-dg-aK4" id="qS3-4a-Epr"/>
-                        <outlet property="passwordAU" destination="Tmn-4N-jGc" id="5aW-yx-uXJ"/>
+                        <outlet property="loginText" destination="vKD-dg-aK4" id="0hO-wh-uD8"/>
+                        <outlet property="passwordAU" destination="Tmn-4N-jGc" id="q2v-Zu-98l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfq-PN-4jj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -8,7 +8,11 @@
 import Foundation
 
 final class AllTestViewModel{
-    private var simpleBluetoothIO = BluetoothManager()
+   static var questions: [String] = []
+   static var objectId: String?
+   static var answers: [String] = []
+   static var responseResult: [String] = []
+   private var simpleBluetoothIO = BluetoothManager()
     private var calculat = CalculatingResult()
     var bluetoothFinished: ((Bool) -> Void)?
     

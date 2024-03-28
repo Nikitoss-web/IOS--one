@@ -12,7 +12,14 @@ final class NetworkСonnection{
     func userRegister() -> String{
         return "https://morallaugh.backendless.app/api/users/register"
     }
-    
+    func newUsers(password: String, email: String, name: String) -> Data? {
+        let registration = Registration(password: password, email: email, name: name)
+        if let jsonData = try? JSONEncoder().encode(registration){
+            print(jsonData)
+            return jsonData
+        }
+        return nil
+    }
     
     func connection(password: String, email: String, name: String, setting: String, completion: @escaping (String?, Error?) -> Void){
         guard let url = URL(string: setting ) else {
@@ -30,8 +37,9 @@ final class NetworkСonnection{
             } else if let data = data {
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            print(json)
                             if let message = json["message"] as? String, let code = json["code"] as? Int {
-                                
+                                print(message)
                                     return  completion(message, nil)
                                 }
                             else {

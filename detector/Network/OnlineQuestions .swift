@@ -1,10 +1,4 @@
 import Foundation
-
-struct Test: Decodable {
-    var name_test: String
-    var test_number: String?
-    var objectId: String
-}
 class OnlineQuestion{
     func fetchDataFromBackendless(token: String, completion: @escaping ([Test]?) -> Void) {
         let url = URL(string: "https://api.backendless.com/1081503C-7904-3AC8-FFD4-CBCC1CCE4A00/784F4CA1-6453-4AF1-BE87-AC0D14E81E32/data/NameTest")!

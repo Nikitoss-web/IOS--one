@@ -1,10 +1,3 @@
-//
-//  Report.swift
-//  detector
-//
-//  Created by НИКИТА ПЕСНЯК on 6.03.24.
-//
-
 import Foundation
 import UIKit
 
