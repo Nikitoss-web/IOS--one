@@ -4,13 +4,11 @@ class RecordingResults{
     func results() -> String{
         return "https://api.backendless.com/1081503C-7904-3AC8-FFD4-CBCC1CCE4A00/784F4CA1-6453-4AF1-BE87-AC0D14E81E32/data/Results"
     }
-    
     func RecordingResult(recording: Recording, userId: String, token: String) {
         guard let url = URL(string: results()) else {
             print("Некорректный URL")
             return
         }
-        
         var recording = recording
         recording.ownerId = userId 
         
@@ -18,7 +16,6 @@ class RecordingResults{
         request.httpMethod = "POST"
         request.addValue(token, forHTTPHeaderField: "user-token")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
         do {
             let jsonData = try JSONEncoder().encode(recording)
             request.httpBody = jsonData
@@ -35,7 +32,6 @@ class RecordingResults{
                     }
                 }
             }
-            
             task.resume()
         } catch {
             print("Ошибка при кодировании данных: \(error.localizedDescription)")

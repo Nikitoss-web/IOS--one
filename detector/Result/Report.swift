@@ -2,15 +2,15 @@ import Foundation
 import UIKit
 
 class Report {
-    func outputResults(selectedResult: ViewResults?, nameLable: UILabel!, lastnameLable: UILabel!, ageLable: UILabel!, questions: inout [String], answers: inout [String], questionField: UITextView!) {
+    func outputResults(selectedResult: ViewResults?, nameLable: UILabel!, lastnameLable: UILabel!, ageLable: UILabel!, questions: inout [String], answers: inout [String], answerResults: inout [String], questionField: UITextView!) {
         var textViewText = ""
         if let result = selectedResult {
-            sortedQuestions(result.Answers ?? "", answers: &answers, questions: &questions)
+            sortedQuestions(result.Answers ?? "", answers: &answers, questions: &questions, answerResults: &answerResults)
             nameLable.text = result.Name
             lastnameLable.text = result.Lastname
             ageLable.text = result.Age
             for i in 0..<questions.count {
-                textViewText += "\(questions[i])      \(answers[i])\n"
+                textViewText += "\(questions[i])      \(answers[i])      \(answerResults[i])\n"
             }
             questionField.text = textViewText
             print(textViewText)
@@ -18,33 +18,36 @@ class Report {
             print("Результат не установлен")
         }
     }
-
-    func sortedQuestions(_ answersText: String, answers: inout [String], questions: inout [String]) {
+    func sortedQuestions(_ answersText: String, answers: inout [String], questions: inout [String], answerResults: inout [String]) {
         let components = answersText.components(separatedBy: .whitespacesAndNewlines)
         var currentQuestion = ""
-
         for component in components {
-            if component.lowercased() == "no" || component.lowercased() == "yes" {
+            if answerNoYes(component: component) {
                 answers.append(component)
-
-                if !currentQuestion.isEmpty {
+                if сheckEmptiness(component: currentQuestion) {
                     questions.append(currentQuestion)
                     currentQuestion = ""
                 }
+            } else if answerTruthLie(component: component) {
+                answerResults.append(component)
             } else {
-                if !component.isEmpty {
+                if сheckEmptiness(component: component) {
                     currentQuestion += " " + component
                 }
             }
         }
-
         if !currentQuestion.isEmpty {
             questions.append(currentQuestion)
         }
-
-        for i in 0..<questions.count {
-            print("Вопрос: \(questions[i])")
-            print("Ответ: \(answers[i])")
-        }
     }
-}
+    func answerNoYes(component: String) -> Bool{
+        return component.lowercased() == "no" || component.lowercased() == "yes"
+    }
+    func answerTruthLie(component: String) -> Bool{
+        return component.lowercased() == "truth" || component.lowercased() == "lie"
+    }
+    func сheckEmptiness(component: String) -> Bool{
+        return !component.isEmpty
+    }
+    }
+   

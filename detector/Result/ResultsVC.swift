@@ -14,21 +14,16 @@ class ResultsVC: UIViewController, UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.resultCount
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "YourCellIdentifier3", for: indexPath) as! ResultTableViewCell
-        
-        //let results = result[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.YourCellIdentifier3.rawValue, for: indexPath) as! ResultTableViewCell
         cell.nameLable.text = viewModel.resultName(at: indexPath.row)
         cell.lastnameLable.text = viewModel.resultLastname(at: indexPath.row)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       let selectedResult = viewModel.results(at: indexPath.row)
-        
-        let storyboard = UIStoryboard(name: "ResultsStorybord", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "ReportVC") as? ReportVC {
-            ReportVCModel.selectedResult = viewModel.results(at: indexPath.row)
+        let storyboard = UIStoryboard(name: Screen.ResultStorybord.rawValue, bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: String(describing: ReportVC.self)) as? ReportVC {
+            Manager.selectedResult = viewModel.results(at: indexPath.row)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

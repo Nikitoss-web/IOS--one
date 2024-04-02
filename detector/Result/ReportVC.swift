@@ -15,8 +15,9 @@ class ReportVC: UIViewController {
     private let viewModel = ReportVCModel()
        override func viewDidLoad() {
            super.viewDidLoad()
-           
-           viewModel.setupReport(selectedResult: ReportVCModel.selectedResult, nameLable: nameLable, lastnameLable: lastnameLable, ageLable: ageLable, questionField: questionField)
+           viewModel.setupReport(selectedResult: Manager.selectedResult, nameLable: nameLable, lastnameLable: lastnameLable, ageLable: ageLable, questionField: questionField)
+           Manager.answers = []
+           Manager.questions = []
        }
 
 }

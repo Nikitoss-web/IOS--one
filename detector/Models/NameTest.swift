@@ -1,7 +1,6 @@
 struct NameTestResponse: Decodable {
     var data: [NameTest1]
 }
-
 struct NameTest1: Decodable {
     var objectId: String
 }

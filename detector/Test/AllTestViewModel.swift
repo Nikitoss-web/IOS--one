@@ -1,33 +1,20 @@
-//
-//  AllTestViewModel.swift
-//  detector
-//
-//  Created by НИКИТА ПЕСНЯК on 22.03.24.
-//
-
 import Foundation
 
 final class AllTestViewModel{
-   static var questions: [String] = []
-   static var objectId: String?
-   static var answers: [String] = []
-   static var responseResult: [String] = []
-   private var simpleBluetoothIO = BluetoothManager()
-    private var calculat = CalculatingResult()
     var bluetoothFinished: ((Bool) -> Void)?
-    
+    let bluetoothManager = BluetoothManagerProvider.shared.bluetoothManager
+    private var calculat = CalculatingResult()
     func bluetoothStart(){
-        simpleBluetoothIO.receivedDataArray.removeAll()
+        bluetoothManager.receivedDataArray.removeAll()
         let message = "start"
         if let data = message.data(using: .utf8) {
-            simpleBluetoothIO.sendDataToPeripheral(data: data)
+            bluetoothManager.sendDataToPeripheral(data: data)
         }
     }
     func bluetoothStop() -> Bool{
         let message = "stop"
         if let data = message.data(using: .utf8) {
-            simpleBluetoothIO.sendDataToPeripheral(data: data)
-        }
-     return calculat.responseResult(array: simpleBluetoothIO.receivedDataArray, maxECG: XibTimers.maxECG)
+            bluetoothManager.sendDataToPeripheral(data: data)        }
+     return calculat.responseResult(array: bluetoothManager.receivedDataArray, maxECG: XibTimers.maxECG)
     }
 }

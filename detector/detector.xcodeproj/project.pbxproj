@@ -29,6 +29,7 @@
 		4427B5222B73907800DBDC77 /* AllTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4427B5212B73907800DBDC77 /* AllTestVC.swift */; };
 		445D9DE62BB4D87800BC6537 /* ResultVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D9DE52BB4D87800BC6537 /* ResultVCModel.swift */; };
 		445D9DE82BB4DF7500BC6537 /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D9DE72BB4DF7500BC6537 /* ViewControllerModel.swift */; };
+		447837B72BB5EA41000482F4 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837B62BB5EA41000482F4 /* Manager.swift */; };
 		44833DBC2B8CAD5C00B15D9F /* Results+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44833DB62B8CAD5C00B15D9F /* Results+CoreDataClass.swift */; };
 		44833DBD2B8CAD5C00B15D9F /* Results+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44833DB72B8CAD5C00B15D9F /* Results+CoreDataProperties.swift */; };
 		44833DBE2B8CAD5C00B15D9F /* NameTest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44833DB82B8CAD5C00B15D9F /* NameTest+CoreDataClass.swift */; };
@@ -55,6 +56,7 @@
 		44C489352B6CFFB200EE49F3 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C489342B6CFFB200EE49F3 /* TestVC.swift */; };
 		44DF697B2B9F2BCF004EB549 /* XibTimers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DF697A2B9F2BCF004EB549 /* XibTimers.swift */; };
 		44DF697D2B9F2BF0004EB549 /* XibTimers.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44DF697C2B9F2BF0004EB549 /* XibTimers.xib */; };
+		44E3C5072BBC401600027FF5 /* EnumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3C5062BBC401600027FF5 /* EnumScreen.swift */; };
 		44FC4D962BA0B557003F4D87 /* ECGData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FC4D952BA0B557003F4D87 /* ECGData.swift */; };
 		44FE86C82B8F2AD100A8120F /* Questions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE86C62B8F2AD100A8120F /* Questions+CoreDataClass.swift */; };
 		44FE86C92B8F2AD100A8120F /* Questions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE86C72B8F2AD100A8120F /* Questions+CoreDataProperties.swift */; };
@@ -83,6 +85,7 @@
 		4427B5212B73907800DBDC77 /* AllTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTestVC.swift; sourceTree = "<group>"; };
 		445D9DE52BB4D87800BC6537 /* ResultVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVCModel.swift; sourceTree = "<group>"; };
 		445D9DE72BB4DF7500BC6537 /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
+		447837B62BB5EA41000482F4 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		44833DB62B8CAD5C00B15D9F /* Results+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+CoreDataClass.swift"; sourceTree = "<group>"; };
 		44833DB72B8CAD5C00B15D9F /* Results+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		44833DB82B8CAD5C00B15D9F /* NameTest+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NameTest+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -101,7 +104,7 @@
 		44A68BE92BA58D020048C834 /* CalculatingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatingResult.swift; sourceTree = "<group>"; };
 		44AC8A722B8C8943008BC114 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		44AC8A822B8C93B1008BC114 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
-		44AF3E532B990950007FD097 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainManager.swift; path = Logen/KeychainManager.swift; sourceTree = SOURCE_ROOT; };
+		44AF3E532B990950007FD097 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeychainManager.swift; path = Managers/KeychainManager.swift; sourceTree = SOURCE_ROOT; };
 		44B1A4582B990AB9000E534B /* NetworkСonnectionAU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkСonnectionAU.swift"; sourceTree = "<group>"; };
 		44B1A45B2B990B23000E534B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		44B1A45D2B990E8E000E534B /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 		44C489342B6CFFB200EE49F3 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		44DF697A2B9F2BCF004EB549 /* XibTimers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibTimers.swift; sourceTree = "<group>"; };
 		44DF697C2B9F2BF0004EB549 /* XibTimers.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XibTimers.xib; sourceTree = "<group>"; };
+		44E3C5062BBC401600027FF5 /* EnumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumScreen.swift; sourceTree = "<group>"; };
 		44FC4D952BA0B557003F4D87 /* ECGData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGData.swift; sourceTree = "<group>"; };
 		44FE86C62B8F2AD100A8120F /* Questions+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Questions+CoreDataClass.swift"; path = "../Questions+CoreDataClass.swift"; sourceTree = "<group>"; };
 		44FE86C72B8F2AD100A8120F /* Questions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Questions+CoreDataProperties.swift"; path = "../Questions+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -209,9 +213,22 @@
 			path = UserTest;
 			sourceTree = "<group>";
 		};
+		447837B52BB5EA19000482F4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				449B9E1D2B7513A90093BC08 /* Bluetooth.swift */,
+				4404511C2B6C598B005252A3 /* Error.swift */,
+				44AF3E532B990950007FD097 /* KeychainManager.swift */,
+				447837B62BB5EA41000482F4 /* Manager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		449F619D2B6BC3580021DD7A = {
 			isa = PBXGroup;
 			children = (
+				44E3C5082BBC45BC00027FF5 /* Enums */,
+				447837B52BB5EA19000482F4 /* Managers */,
 				44AC8A752B8C9304008BC114 /* CoreData */,
 				440451092B6C3403005252A3 /* Network */,
 				4427B5232B739BB800DBDC77 /* Models */,
@@ -245,8 +262,6 @@
 				449F61B22B6BC35A0021DD7A /* Assets.xcassets */,
 				449F61B42B6BC35A0021DD7A /* LaunchScreen.storyboard */,
 				449F61B72B6BC35A0021DD7A /* Info.plist */,
-				4404511C2B6C598B005252A3 /* Error.swift */,
-				449B9E1D2B7513A90093BC08 /* Bluetooth.swift */,
 				44AC8A712B8C8943008BC114 /* CoreData.xcdatamodeld */,
 			);
 			path = detector;
@@ -269,10 +284,17 @@
 		44B1A45A2B990AF9000E534B /* Logen */ = {
 			isa = PBXGroup;
 			children = (
-				44AF3E532B990950007FD097 /* KeychainManager.swift */,
 				44B1A45B2B990B23000E534B /* LoginVC.swift */,
 			);
 			path = Logen;
+			sourceTree = "<group>";
+		};
+		44E3C5082BBC45BC00027FF5 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				44E3C5062BBC401600027FF5 /* EnumScreen.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +392,8 @@
 				44FE86C92B8F2AD100A8120F /* Questions+CoreDataProperties.swift in Sources */,
 				44833DBF2B8CAD5C00B15D9F /* NameTest+CoreDataProperties.swift in Sources */,
 				44C489352B6CFFB200EE49F3 /* TestVC.swift in Sources */,
+				447837B72BB5EA41000482F4 /* Manager.swift in Sources */,
+				44E3C5072BBC401600027FF5 /* EnumScreen.swift in Sources */,
 				44833DBD2B8CAD5C00B15D9F /* Results+CoreDataProperties.swift in Sources */,
 				44A68BEA2BA58D020048C834 /* CalculatingResult.swift in Sources */,
 				4427B4F52B72419300DBDC77 /* OnlineNameTest.swift in Sources */,
@@ -545,7 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KSVC22M9J2;
+				DEVELOPMENT_TEAM = PY73C3VN2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = detector/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "you need ble";
@@ -573,6 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PY73C3VN2Q;
@@ -590,8 +615,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = nikitoss.detector;
+				PRODUCT_BUNDLE_IDENTIFIER = nikitoss.detector.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

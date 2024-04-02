@@ -1,9 +1,9 @@
 import Foundation
 import UIKit
+
 class ResultVCModel{
     private let resultsView = viewResult()
     var result: [ViewResults] = []
-    let simpleBluetoothIO = BluetoothManager()
     var resultCount: Int {
         return result.count
     }

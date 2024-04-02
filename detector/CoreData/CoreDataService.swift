@@ -73,14 +73,6 @@ final class CoreDataService {
             print("Error deleting old questions: \(error)")
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
     func saveNameTest(with questions1: QuestionResponse) {
         context.perform { [weak self] in
             guard let self = self else { return }

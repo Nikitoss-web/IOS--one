@@ -3,7 +3,6 @@ class OnlineQuestion{
     func fetchDataFromBackendless(token: String, completion: @escaping ([Test]?) -> Void) {
         let url = URL(string: "https://api.backendless.com/1081503C-7904-3AC8-FFD4-CBCC1CCE4A00/784F4CA1-6453-4AF1-BE87-AC0D14E81E32/data/NameTest")!
         var request = URLRequest(url: url)
-        
         request.httpMethod = "GET"
         request.addValue(token, forHTTPHeaderField: "user-token")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -14,13 +13,11 @@ class OnlineQuestion{
                 completion(nil)
                 return
             }
-            
             guard let data = data else {
                 print("Ошибка: Отсутствует data")
                 completion(nil)
                 return
             }
-            
             do {
                 let tests = try JSONDecoder().decode([Test].self, from: data)
                 

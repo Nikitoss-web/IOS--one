@@ -7,25 +7,21 @@ class OnlineNameTest{
             completion(nil)
             return
         }
-        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue(token, forHTTPHeaderField: "user-token")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
                 completion(nil)
                 return
             }
-            
             guard let data = data else {
                 print("No data received")
                 completion(nil)
                 return
             }
-            
             do {
                 let response = try JSONDecoder().decode(QuestionResponse.self, from: data)
                 CoreDataService.shared.saveNameTest(with: response)
@@ -37,7 +33,6 @@ class OnlineNameTest{
                 completion(nil)
             }
         }
-        
         task.resume()
     }
 }

@@ -7,20 +7,17 @@ final class ViewController: UIViewController{
             viewModel.validationUserToken()
     }
     @IBAction private func regButton(){
-       
-        let mainStorybord = UIStoryboard(name: "Main", bundle: nil)
-        let registrationVC = mainStorybord.instantiateViewController(identifier: "RegistrationVC")
+        let mainStorybord = UIStoryboard(name: Screen.Main.rawValue, bundle: nil)
+        let registrationVC = mainStorybord.instantiateViewController(withIdentifier: String(describing: RegistrationVC.self))
         navigationController?.pushViewController(registrationVC, animated: true)
-
     }
     @IBAction private func avtButton(){
-        let mainStorybord = UIStoryboard(name: "Main", bundle: nil)
-        let secondVC = mainStorybord.instantiateViewController(identifier: "SecondVC")
-        navigationController?.pushViewController(secondVC, animated: true
-        )
+        let mainStorybord = UIStoryboard(name: Screen.Main.rawValue, bundle: nil)
+        let secondVC = mainStorybord.instantiateViewController(withIdentifier: String(describing: LoginVC.self))
+        navigationController?.pushViewController(secondVC, animated: true)
     }
     }
-    
+
     
      
 

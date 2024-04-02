@@ -1,11 +1,3 @@
-
-//
-//  SecondVC.swift
-//  detector
-//
-//  Created by НИКИТА ПЕСНЯК on 1.02.24.
-//
-
 import UIKit
 
 class LoginVC: UIViewController {
@@ -32,8 +24,6 @@ class LoginVC: UIViewController {
                 }
         }
     }
-       
-    
     @IBAction private func cansel(){
         navigationController?.popViewController(animated: true)
     }

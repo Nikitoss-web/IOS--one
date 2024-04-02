@@ -15,34 +15,30 @@
             <rect key="frame" x="0.0" y="0.0" width="422" height="222"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51y-fQ-CE4">
-                    <rect key="frame" x="190" y="30" width="42" height="39"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cb-RJ-0NW">
-                    <rect key="frame" x="164" y="139" width="60" height="35"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cb-RJ-0NW">
+                    <rect key="frame" x="181" y="153" width="60" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Stop"/>
                     <connections>
                         <action selector="closeButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="4TR-SW-XgZ"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51y-fQ-CE4">
+                    <rect key="frame" x="190" y="36" width="42" height="20.333333333333329"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemPinkColor"/>
+            <color key="backgroundColor" systemColor="systemRedColor"/>
             <constraints>
-                <constraint firstItem="2Cb-RJ-0NW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="57" id="1hW-he-KOU"/>
-                <constraint firstItem="2Cb-RJ-0NW" firstAttribute="top" secondItem="51y-fQ-CE4" secondAttribute="bottom" constant="70" id="9pN-5c-Y8I"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2Cb-RJ-0NW" secondAttribute="bottom" constant="14" id="AE2-YX-VhN"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="51y-fQ-CE4" secondAttribute="trailing" constant="190" id="ARY-Xa-I7W"/>
-                <constraint firstItem="51y-fQ-CE4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="190" id="Ca1-DX-Eje"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2Cb-RJ-0NW" secondAttribute="trailing" constant="198" id="E6C-cy-lNk"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="51y-fQ-CE4" secondAttribute="bottom" constant="119" id="Mfb-7N-GQO"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="51y-fQ-CE4" secondAttribute="top" constant="29" id="kjk-dC-1Wx"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="51y-fQ-CE4" secondAttribute="top" constant="29" id="lL1-Ae-1dA"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="51y-fQ-CE4" secondAttribute="top" constant="29" id="siE-MO-Nuc"/>
+                <constraint firstItem="2Cb-RJ-0NW" firstAttribute="top" secondItem="51y-fQ-CE4" secondAttribute="bottom" constant="96.666666666666671" id="AM9-U6-cwq"/>
+                <constraint firstItem="51y-fQ-CE4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="190" id="Bkt-aw-mbO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="51y-fQ-CE4" secondAttribute="trailing" constant="190" id="cQ4-rQ-lcL"/>
+                <constraint firstItem="2Cb-RJ-0NW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="181" id="hMM-En-9hb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2Cb-RJ-0NW" secondAttribute="trailing" constant="181" id="iCL-OC-Mbx"/>
+                <constraint firstItem="2Cb-RJ-0NW" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="xCw-sv-A3a"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -52,8 +48,8 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

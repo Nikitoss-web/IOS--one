@@ -12,18 +12,14 @@ class AllTestVC: UIViewController{
         setupApperense()
         showTimersView()
         showButtons(false)
-        
-    
         DispatchQueue.main.asyncAfter(deadline: .now() + 12.0) { [self] in
             viewModel.bluetoothStart()
         }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 18.0) { [self] in
             self.showButtons(true)
-            updateResultView(viewModel.bluetoothStop())
+            recordAnswerResult(bool: updateResultView(viewModel.bluetoothStop()))
         }
     }
-    
     @IBAction func noButtonTapped(_ sender: UIButton) {
         resultView.backgroundColor = .white
         recordAnswer(answer: "No")
@@ -33,7 +29,7 @@ class AllTestVC: UIViewController{
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
             self.showButtons(true)
-            updateResultView(viewModel.bluetoothStop())
+            recordAnswerResult(bool: updateResultView(viewModel.bluetoothStop()))
         }
     }
     
@@ -45,29 +41,35 @@ class AllTestVC: UIViewController{
       showButtons(false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {[self] in
             self.showButtons(true)
-            updateResultView(viewModel.bluetoothStop())
+            recordAnswerResult(bool: updateResultView(viewModel.bluetoothStop()))
         }
     }
     @IBAction func finishtestButton(){
-        let storyboard = UIStoryboard(name: "MainStorybord", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "TestVC") as? TestVC {
+        let storyboard = UIStoryboard(name: Screen.MainStorybord.rawValue, bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TestVC.self)) as? TestVC {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
+    func updateResultView(_ bool: Bool) -> Bool{
+        resultView.backgroundColor = bool ? .green : .red
+        return bool
+    }
     private func recordAnswer(answer: String) {
-        AllTestViewModel.answers.append(answer)
+        Manager.answers.append(answer)
     }
     
-    
+    private func recordAnswerResult( bool: Bool){
+        let result = bool ? "Truth" : "Lie"
+            Manager.answerResults.append(result)
+    }
     private func showNextQuestion() {
-        guard let currentQuestionIndex = AllTestViewModel.questions.firstIndex(where: { $0 == textLable.text }) else {
+        guard let currentQuestionIndex = Manager.questions.firstIndex(where: { $0 == textLable.text }) else {
             return
         }
         
         let nextQuestionIndex = currentQuestionIndex + 1
-        if nextQuestionIndex < AllTestViewModel.questions.count {
-            let nextQuestion = AllTestViewModel.questions[nextQuestionIndex]
+        if nextQuestionIndex < Manager.questions.count {
+            let nextQuestion = Manager.questions[nextQuestionIndex]
             
             UIView.transition(with: textLable, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.textLable.text = nextQuestion
@@ -76,19 +78,14 @@ class AllTestVC: UIViewController{
                 
             })
         } else {
-            let storyboard = UIStoryboard(name: "TestUserRegistration", bundle: nil)
-            if let vc = storyboard.instantiateViewController(withIdentifier: "TestUserVC") as? TestUserVC {
-                vc.questions = AllTestViewModel.questions
-                vc.answers = AllTestViewModel.answers
+            let storyboard = UIStoryboard(name: Screen.TestUserRegistration.rawValue, bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TestUserVC.self)) as? TestUserVC {
                 navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
-    func updateResultView(_ bool: Bool){
-        resultView.backgroundColor = bool ? .green : .red
-    }
     private func showTimersView(){
-        if let xib = Bundle.main.loadNibNamed("XibTimers", owner: self, options: nil)?.first as? XibTimers {
+        if let xib = Bundle.main.loadNibNamed(Screen.XibTimers.rawValue, owner: self, options: nil)?.first as? XibTimers {
             let dimView = UIView(frame: view.bounds)
             dimView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
             view.addSubview(dimView)
@@ -105,7 +102,7 @@ class AllTestVC: UIViewController{
     private func setupApperense(){
         navigationItem.hidesBackButton = true
         resultView.backgroundColor = .white
-        if let firstQuestion = AllTestViewModel.questions.first {
+        if let firstQuestion = Manager.questions.first {
             textLable.text = firstQuestion
         }
     }

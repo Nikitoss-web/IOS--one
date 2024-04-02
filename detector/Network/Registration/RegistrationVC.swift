@@ -1,10 +1,3 @@
-//
-//  RegistrationVC.swift
-//  detector
-//
-//  Created by НИКИТА ПЕСНЯК on 2.02.24.
-//
-
 import UIKit
 
 class RegistrationVC: UIViewController {
@@ -13,7 +6,6 @@ class RegistrationVC: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     private let registrain = NetworkСonnection()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -35,11 +27,8 @@ class RegistrationVC: UIViewController {
     
     @IBAction private func cansel(){
         navigationController?.popViewController(animated: true)
-
     }
     @objc private func dismissKeyboard() {
            view.endEditing(true)
        }
-
-
 }

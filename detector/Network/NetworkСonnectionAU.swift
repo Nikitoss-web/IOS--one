@@ -1,14 +1,7 @@
-//  NetworkСonnectionAUT.swift
-//  detector
-//
-//  Created by НИКИТА ПЕСНЯК on 2.02.24.
-//
-
 import Foundation
 import Security
 
 final class NetworkСonnectionAU{
-
     func logins() -> String{
         return "https://morallaugh.backendless.app/api/users/login"
     }
@@ -51,12 +44,8 @@ final class NetworkСonnectionAU{
                         KeychainManager.delete(account: "userId")
                         KeychainManager.save(password: id.data(using: .utf8) ?? Data(), account: "userId")
                     }
-                   
-                   
                         return completion("", nil)
                     }
-                  
-                    
                 } catch {
                     print("Ошибка: \(error.localizedDescription)")
                 }
