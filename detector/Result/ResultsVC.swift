@@ -1,29 +1,43 @@
 import UIKit
 
-class ResultsVC: UIViewController, UITableViewDataSource,UITableViewDelegate{
+protocol SelectedResultDelegatets: AnyObject{
+    func ResultSelected(selectedResult: ViewResults?)
+}
+class ResultsVC: UIViewController{
     @IBOutlet weak var tableView: UITableView!
-    var viewModel: ResultVCModel!
+    var viewModel: ResultViewModel!
+    var selectedResult: ViewResults?
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = ResultVCModel()
-        tableView.dataSource = self
-        viewModel.resultsData(userToken: String(decoding: KeychainManager.getPassword(for: "userToken") ?? Data(), as: UTF8.self), tableView: tableView)
+        viewModel = ResultViewModel()
+        viewModel.resultsData(userToken: KeychainManager.getPassword(for: AccountEnum.userToken.rawValue) ?? "", tableView: tableView)
         tableView.dataSource = self
         tableView.delegate = self
     }
+}
+extension ResultsVC: SelectedResultDelegatets{
+    func ResultSelected(selectedResult: ViewResults?) {
+        self.selectedResult = selectedResult
+    }
+}
+extension ResultsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.resultCount
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.YourCellIdentifier3.rawValue, for: indexPath) as! ResultTableViewCell
-        cell.nameLable.text = viewModel.resultName(at: indexPath.row)
-        cell.lastnameLable.text = viewModel.resultLastname(at: indexPath.row)
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.yourCellIdentifier3.rawValue, for: indexPath) as? ResultTableViewCell
+        cell?.nameLable.text = viewModel.resultName(at: indexPath.row)
+        cell?.lastnameLable.text = viewModel.resultLastname(at: indexPath.row)
+        return cell ?? UITableViewCell()
     }
+}
+extension ResultsVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: Screen.ResultStorybord.rawValue, bundle: nil)
+        let storyboard = UIStoryboard(name: Screen.resultStoryboard.rawValue, bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: String(describing: ReportVC.self)) as? ReportVC {
-            Manager.selectedResult = viewModel.results(at: indexPath.row)
+           selectedResult = viewModel.results(at: indexPath.row)
+            vc.selectedResult = selectedResult
+            vc.delegates = self
             navigationController?.pushViewController(vc, animated: true)
         }
     }

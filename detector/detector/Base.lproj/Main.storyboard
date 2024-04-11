@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gXc-UR-qsG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +22,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Регистрация"/>
                                 <connections>
-                                    <action selector="regButton" destination="quQ-VP-dIl" eventType="touchUpInside" id="pYO-Ht-0Y7"/>
+                                    <action selector="authorizationButton" destination="quQ-VP-dIl" eventType="touchUpInside" id="pYO-Ht-0Y7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwW-lH-Ghc">
@@ -33,16 +32,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Авторизация"/>
                                 <connections>
-                                    <action selector="avtButton" destination="quQ-VP-dIl" eventType="touchUpInside" id="V2t-e3-T4s"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmT-gs-9t7">
-                                <rect key="frame" x="150" y="590" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="sdutton" destination="quQ-VP-dIl" eventType="touchUpInside" id="z6c-3U-xda"/>
+                                    <action selector="authorizationButton" destination="quQ-VP-dIl" eventType="touchUpInside" id="V2t-e3-T4s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -111,7 +101,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Cansel"/>
                                 <connections>
-                                    <action selector="cansel" destination="BYZ-38-t0r" eventType="touchUpInside" id="2kv-45-Qny"/>
+                                    <action selector="cancel" destination="BYZ-38-t0r" eventType="touchUpInside" id="2kv-45-Qny"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAl-jl-4N5">
@@ -207,7 +197,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Cansel"/>
                                 <connections>
-                                    <action selector="cansel" destination="VVn-RX-Wlo" eventType="touchUpInside" id="rcI-tj-Tho"/>
+                                    <action selector="cancel" destination="VVn-RX-Wlo" eventType="touchUpInside" id="rcI-tj-Tho"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcC-sK-pGw">

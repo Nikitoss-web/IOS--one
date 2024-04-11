@@ -3,7 +3,7 @@ import UIKit
 class LoginVC: UIViewController {
     @IBOutlet weak var passwordAU: UITextField!
     @IBOutlet weak var loginText: UITextField!
-    private let networkAut = NetworkСonnectionAU()
+    let viewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -11,24 +11,22 @@ class LoginVC: UIViewController {
                 view.addGestureRecognizer(tapGesture)
     }
     @IBAction private func closeButton(){
-            networkAut.connectionAUT(password: passwordAU.text!, login: loginText.text! , setting: networkAut.logins()){ message, error in
-                if let message = message {
-                    DispatchQueue.main.async {
-                        AlertManager.showAlert(viewController: self, message: message, completion: {
-                            let mainStorybord = UIStoryboard(name: "MainStorybord", bundle: nil)
-                            let registrationVC = mainStorybord.instantiateViewController(identifier: "TestVC")
-                            
-                            self.navigationController?.pushViewController(registrationVC, animated: true)
-                        })
-                    }
-                }
+        viewModel.nextScreen = { [weak self] message in
+                self?.next(message: message)
+            }
+        viewModel.connect(password: passwordAU.text, login: loginText.text )
         }
-    }
-    @IBAction private func cansel(){
+    @IBAction private func cancel(){
         navigationController?.popViewController(animated: true)
     }
     @objc private func dismissKeyboard() {
            view.endEditing(true)
        }
-
+    private func next(message: String){
+        AlertManager.showAlert(viewController: self, message: message, completion: {
+            let storyboard = UIStoryboard(name: Screen.mainStoryboard.rawValue, bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TestVC.self)) as? TestVC {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }})
+    }
 }

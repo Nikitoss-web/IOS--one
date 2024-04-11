@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TimersView" customModule="detector" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="222"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cb-RJ-0NW">
+                    <rect key="frame" x="181" y="153" width="60" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Stop"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="4TR-SW-XgZ"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51y-fQ-CE4">
+                    <rect key="frame" x="190" y="36" width="42" height="20.333333333333329"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemRedColor"/>
+            <constraints>
+                <constraint firstItem="2Cb-RJ-0NW" firstAttribute="top" secondItem="51y-fQ-CE4" secondAttribute="bottom" constant="96.666666666666671" id="AM9-U6-cwq"/>
+                <constraint firstItem="51y-fQ-CE4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="190" id="Bkt-aw-mbO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="51y-fQ-CE4" secondAttribute="trailing" constant="190" id="cQ4-rQ-lcL"/>
+                <constraint firstItem="2Cb-RJ-0NW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="181" id="hMM-En-9hb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2Cb-RJ-0NW" secondAttribute="trailing" constant="181" id="iCL-OC-Mbx"/>
+                <constraint firstItem="2Cb-RJ-0NW" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="xCw-sv-A3a"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="timerLabel" destination="51y-fQ-CE4" id="Yrh-zq-mTk"/>
+            </connections>
+            <point key="canvasLocation" x="149.61832061068702" y="-80.281690140845072"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

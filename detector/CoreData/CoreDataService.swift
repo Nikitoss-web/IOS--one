@@ -1,10 +1,9 @@
 import Foundation
 import CoreData
+
 final class CoreDataService {
     static var shared = CoreDataService()
-    
     private init() {}
-    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CoreData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -14,11 +13,9 @@ final class CoreDataService {
         })
         return container
     }()
-    
     private var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    
     func saveQuestions(with tests: [Test]) {
         context.perform { [weak self] in
             guard let self = self else { return }
@@ -46,10 +43,9 @@ final class CoreDataService {
             return []
         }
     }
-
     func isQuestionAlreadySavedTest(name_test: String, objectId: String) -> Bool {
         let fetchRequest: NSFetchRequest<NameTest> = NameTest.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "name_test == %@ AND objectId == %@", name_test, objectId)
+        fetchRequest.predicate = NSPredicate(format: SearchFormatBases.name_testObjectId.rawValue, name_test, objectId)
 
         do {
             let matchingQuestions = try context.fetch(fetchRequest)
@@ -61,7 +57,7 @@ final class CoreDataService {
     }
     func deleteOldTest(objectId: String) {
         let fetchRequest: NSFetchRequest<NameTest> = NameTest.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "objectId == %@", objectId)
+        fetchRequest.predicate = NSPredicate(format: SearchFormatBases.objectId.rawValue, objectId)
 
         do {
             let matchingQuestions = try context.fetch(fetchRequest)
@@ -77,7 +73,7 @@ final class CoreDataService {
         context.perform { [weak self] in
             guard let self = self else { return }
 
-            let questionString = questions1.question.map { $0.Questions }.joined(separator: ", ")
+            let questionString = questions1.question.map { $0.questions }.joined(separator: ", ")
 
             if isQuestionAlreadySaved(questions: questionString, ownerId: questions1.name_test) {
                 deleteOldQuestions(questions: questionString, ownerId: questions1.name_test)
@@ -91,7 +87,7 @@ final class CoreDataService {
     }
     func deleteOldQuestions(questions: String, ownerId: String) {
         let fetchRequest: NSFetchRequest<Questions> = Questions.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "ownerId == %@", ownerId)
+        fetchRequest.predicate = NSPredicate(format: SearchFormatBases.ownerId.rawValue, ownerId)
 
         do {
             let matchingQuestions = try context.fetch(fetchRequest)
@@ -105,7 +101,7 @@ final class CoreDataService {
     }
     func isQuestionAlreadySaved(questions: String, ownerId: String) -> Bool {
         let fetchRequest: NSFetchRequest<Questions> = Questions.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "questions == %@ AND ownerId == %@", questions, ownerId)
+        fetchRequest.predicate = NSPredicate(format: SearchFormatBases.questionsOwnerId.rawValue, questions, ownerId)
 
         do {
             let matchingQuestions = try context.fetch(fetchRequest)
@@ -115,11 +111,9 @@ final class CoreDataService {
             return false
         }
     }
-
-
     func fetchQuestionsFromCoreData(forownerId ownerId: String) -> [String]? {
         let fetchRequest: NSFetchRequest<Questions> = Questions.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "ownerId == %@", ownerId)
+        fetchRequest.predicate = NSPredicate(format: SearchFormatBases.ownerId.rawValue, ownerId)
         var questionsArray: [String] = []
         do {
             let questions = try context.fetch(fetchRequest)
@@ -140,8 +134,8 @@ final class CoreDataService {
                 do {
                     try context.save()
                 } catch {
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                    let errors = error as NSError
+                    fatalError("Unresolved error \(errors), \(errors.userInfo)")
                 }
             }
         }

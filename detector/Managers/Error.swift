@@ -1,12 +1,4 @@
-//
-//  Error.swift
-//  detector
-//
-//  Created by НИКИТА ПЕСНЯК on 2.02.24.
-//
-
 import UIKit
-
 
 class AlertManager {
     static func notShowAlert(viewController: UIViewController?) {
@@ -15,7 +7,6 @@ class AlertManager {
         alert.addAction(okButton)
          viewController?.present(alert, animated: true)
     }
-
     static func showAlert(viewController: UIViewController?, message: String, completion: @escaping() -> Void) {
         let alert = UIAlertController(title: !message.isEmpty ? message : "You have registered", message: nil, preferredStyle: .alert)
         
@@ -24,7 +15,6 @@ class AlertManager {
                 completion()
             }
         }
-        
         alert.addAction(okButton)
         viewController?.present(alert, animated: true)
     }

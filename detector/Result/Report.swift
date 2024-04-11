@@ -5,10 +5,10 @@ class Report {
     func outputResults(selectedResult: ViewResults?, nameLable: UILabel!, lastnameLable: UILabel!, ageLable: UILabel!, questions: inout [String], answers: inout [String], answerResults: inout [String], questionField: UITextView!) {
         var textViewText = ""
         if let result = selectedResult {
-            sortedQuestions(result.Answers ?? "", answers: &answers, questions: &questions, answerResults: &answerResults)
-            nameLable.text = result.Name
-            lastnameLable.text = result.Lastname
-            ageLable.text = result.Age
+            sortedQuestions(result.answers ?? "", answers: &answers, questions: &questions, answerResults: &answerResults)
+            nameLable.text = result.name
+            lastnameLable.text = result.lastname
+            ageLable.text = result.age
             for i in 0..<questions.count {
                 textViewText += "\(questions[i])      \(answers[i])      \(answerResults[i])\n"
             }

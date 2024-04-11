@@ -5,11 +5,10 @@ class AllTestVC: UIViewController{
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
     @IBOutlet weak var resultView: UIView!
-    private var viewModel: AllTestViewModel!
+    var viewModel =  AllTestViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = AllTestViewModel()
-        setupApperense()
+        setupAppearance()
         showTimersView()
         showButtons(false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 12.0) { [self] in
@@ -17,75 +16,59 @@ class AllTestVC: UIViewController{
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 18.0) { [self] in
             self.showButtons(true)
-            recordAnswerResult(bool: updateResultView(viewModel.bluetoothStop()))
-        }
-    }
-    @IBAction func noButtonTapped(_ sender: UIButton) {
-        resultView.backgroundColor = .white
-        recordAnswer(answer: "No")
-        viewModel.bluetoothStart()
-        showNextQuestion()
-        showButtons(false)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
-            self.showButtons(true)
-            recordAnswerResult(bool: updateResultView(viewModel.bluetoothStop()))
-        }
-    }
-    
-    @IBAction func yesButtonTapped(_ sender: UIButton) {
-        resultView.backgroundColor = .white
-        recordAnswer(answer: "Yes")
-        showNextQuestion()
-        viewModel.bluetoothStart()
-      showButtons(false)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {[self] in
-            self.showButtons(true)
-            recordAnswerResult(bool: updateResultView(viewModel.bluetoothStop()))
-        }
-    }
-    @IBAction func finishtestButton(){
-        let storyboard = UIStoryboard(name: Screen.MainStorybord.rawValue, bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TestVC.self)) as? TestVC {
-            navigationController?.pushViewController(vc, animated: true)
+                viewModel.recordAnswerResult(bool: updateResultView(viewModel.bluetoothStop()))
         }
     }
     func updateResultView(_ bool: Bool) -> Bool{
         resultView.backgroundColor = bool ? .green : .red
         return bool
     }
-    private func recordAnswer(answer: String) {
-        Manager.answers.append(answer)
+    @IBAction func noButtonTapped(_ sender: UIButton) {
+        resultView.backgroundColor = .white
+            viewModel.recordAnswer(answer: "No")
+        viewModel.bluetoothStart()
+        showNextQuestion()
+        showButtons(false)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [self] in
+            self.showButtons(true)
+                viewModel.recordAnswerResult(bool: updateResultView(viewModel.bluetoothStop()))
+        }
     }
     
-    private func recordAnswerResult( bool: Bool){
-        let result = bool ? "Truth" : "Lie"
-            Manager.answerResults.append(result)
+    @IBAction func yesButtonTapped(_ sender: UIButton) {
+        resultView.backgroundColor = .white
+        viewModel.recordAnswer(answer: "Yes")
+        showNextQuestion()
+        viewModel.bluetoothStart()
+      showButtons(false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {[self] in
+            self.showButtons(true)
+                viewModel.recordAnswerResult(bool: updateResultView(viewModel.bluetoothStop()))
+        }
+    }
+    @IBAction func finishtestButton(){
+        let storyboard = UIStoryboard(name: Screen.mainStoryboard.rawValue, bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TestVC.self)) as? TestVC {
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     private func showNextQuestion() {
-        guard let currentQuestionIndex = Manager.questions.firstIndex(where: { $0 == textLable.text }) else {
-            return
-        }
-        
-        let nextQuestionIndex = currentQuestionIndex + 1
-        if nextQuestionIndex < Manager.questions.count {
-            let nextQuestion = Manager.questions[nextQuestionIndex]
-            
+        if viewModel.currentQuestionIndex(textLable: textLable) < viewModel.fetchedQuestions.count {
             UIView.transition(with: textLable, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                self.textLable.text = nextQuestion
-               
-            }, completion: { _ in
-                
+                self.textLable.text = self.viewModel.fetchedQuestions[self.viewModel.currentQuestionIndex(textLable: self.textLable)]
+               }, completion: { _ in
             })
         } else {
-            let storyboard = UIStoryboard(name: Screen.TestUserRegistration.rawValue, bundle: nil)
+            let storyboard = UIStoryboard(name: Screen.testUserRegistration.rawValue, bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TestUserVC.self)) as? TestUserVC {
+                viewModel.delegateAllTestViewModel(vc: vc.viewModel)
                 navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
     private func showTimersView(){
-        if let xib = Bundle.main.loadNibNamed(Screen.XibTimers.rawValue, owner: self, options: nil)?.first as? XibTimers {
+        if let xib = Bundle.main.loadNibNamed(Screen.timersView.rawValue, owner: self, options: nil)?.first as? TimersView {
             let dimView = UIView(frame: view.bounds)
             dimView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
             view.addSubview(dimView)
@@ -99,10 +82,10 @@ class AllTestVC: UIViewController{
             }
         }
     }
-    private func setupApperense(){
+    private func setupAppearance(){
         navigationItem.hidesBackButton = true
         resultView.backgroundColor = .white
-        if let firstQuestion = Manager.questions.first {
+        if let firstQuestion = viewModel.fetchedQuestions.first {
             textLable.text = firstQuestion
         }
     }
@@ -111,4 +94,3 @@ class AllTestVC: UIViewController{
         noButton.isHidden = !show
     }
    }
-

@@ -14,7 +14,6 @@ class BluetoothManager: NSObject {
         centralManager = CBCentralManager(delegate: self, queue: nil)
     }
 }
-
 extension BluetoothManager: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
@@ -49,7 +48,6 @@ extension BluetoothManager: CBPeripheralDelegate {
             }
         }
     }
-
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         if let characteristics = service.characteristics {
             for characteristic in characteristics {
@@ -75,7 +73,6 @@ extension BluetoothManager: CBPeripheralDelegate {
                 print("Unable to decode data to string")
             }
         }
-
     //отправка на esp
     func sendDataToPeripheral(data: Data) {
         if let peripheral = peripheralDevice, let characteristic = self.characteristic {
@@ -92,6 +89,5 @@ extension BluetoothManager: CBPeripheralDelegate {
 class BluetoothManagerProvider {
     static let shared = BluetoothManagerProvider()
     let bluetoothManager = BluetoothManager()
-
     private init() {}
 }
