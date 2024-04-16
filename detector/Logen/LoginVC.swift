@@ -1,32 +1,49 @@
 import UIKit
 
 class LoginVC: UIViewController {
+    @IBOutlet weak var loginButton: UILabel!
+    @IBOutlet weak var passwordButton: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var canselButton: UIButton!
     @IBOutlet weak var passwordAU: UITextField!
     @IBOutlet weak var loginText: UITextField!
-    let viewModel = LoginViewModel()
+    let viewModel = LoginViewModel(networkAuthorization: NetworkLoginAPI())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        localizable()
         navigationItem.hidesBackButton = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
                 view.addGestureRecognizer(tapGesture)
     }
-    @IBAction private func closeButton(){
-        viewModel.nextScreen = { [weak self] message in
+    
+    @IBAction private func closeButton() {
+        viewModel.showNextScreen = { [weak self] message in
                 self?.next(message: message)
             }
         viewModel.connect(password: passwordAU.text, login: loginText.text )
         }
-    @IBAction private func cancel(){
+    
+    @IBAction private func cancel() {
         navigationController?.popViewController(animated: true)
     }
+    
     @objc private func dismissKeyboard() {
            view.endEditing(true)
        }
+    
     private func next(message: String){
         AlertManager.showAlert(viewController: self, message: message, completion: {
             let storyboard = UIStoryboard(name: Screen.mainStoryboard.rawValue, bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TestVC.self)) as? TestVC {
                 self.navigationController?.pushViewController(vc, animated: true)
             }})
+    }
+    
+    private func localizable() {
+        loginButton.text = NSLocalizedString("login", comment: "")
+        passwordButton.text = NSLocalizedString("password", comment: "")
+        saveButton.setTitle(NSLocalizedString("save", comment: ""), for: .normal)
+        canselButton.setTitle(NSLocalizedString("cansel", comment: ""), for: .normal)
     }
 }

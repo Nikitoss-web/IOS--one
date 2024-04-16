@@ -1,13 +1,4 @@
-//
-//  AppDelegate.swift
-//  detector
-//
-//  Created by НИКИТА ПЕСНЯК on 1.02.24.
-//
-
 import UIKit
-
-
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

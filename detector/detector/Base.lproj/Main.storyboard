@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gXc-UR-qsG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Регистрация"/>
                                 <connections>
-                                    <action selector="authorizationButton" destination="quQ-VP-dIl" eventType="touchUpInside" id="pYO-Ht-0Y7"/>
+                                    <action selector="registrationButton" destination="quQ-VP-dIl" eventType="touchUpInside" id="7sP-Bx-Znm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwW-lH-Ghc">
@@ -32,7 +33,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Авторизация"/>
                                 <connections>
-                                    <action selector="authorizationButton" destination="quQ-VP-dIl" eventType="touchUpInside" id="V2t-e3-T4s"/>
+                                    <action selector="authorizationButton" destination="quQ-VP-dIl" eventType="touchUpInside" id="UHd-65-YMa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -48,6 +49,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="exl-cW-rch"/>
+                    <connections>
+                        <outlet property="authorizationsButton" destination="BwW-lH-Ghc" id="eC8-Ry-y0Y"/>
+                        <outlet property="registrationsButton" destination="YWX-7x-MYq" id="YZF-wy-98A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yhd-Sd-gdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,6 +119,17 @@
                                     <action selector="saveButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="TMC-TQ-Lm2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5b8-ci-Eew">
+                                <rect key="frame" x="16" y="557" width="332" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Cansel"/>
+                                <connections>
+                                    <action selector="cancel" destination="BYZ-38-t0r" eventType="touchUpInside" id="xw1-10-Af0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.07375341934684719" green="0.38628042174368793" blue="0.070554993177345621" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -147,9 +163,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="canselButton" destination="5b8-ci-Eew" id="0gg-a4-hUv"/>
+                        <outlet property="emailLable" destination="ce9-fa-9dE" id="u30-Bc-n5U"/>
                         <outlet property="emailText" destination="zGB-V6-Y3c" id="moW-wF-xiX"/>
+                        <outlet property="nameLable" destination="ekf-lt-Isc" id="3m7-za-ccd"/>
                         <outlet property="nameText" destination="kZf-fK-mMJ" id="qzs-xI-MQI"/>
+                        <outlet property="passwordLable" destination="92i-WS-bvQ" id="mS6-DN-6Zq"/>
                         <outlet property="passwordText" destination="dWI-Ir-BLg" id="fJn-Te-ucL"/>
+                        <outlet property="savesButton" destination="kAl-jl-4N5" id="rvt-LY-YO6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -232,8 +253,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="canselButton" destination="yvQ-1G-pVI" id="mKg-cu-2DO"/>
+                        <outlet property="loginButton" destination="VcC-sK-pGw" id="5nN-cp-ZV3"/>
                         <outlet property="loginText" destination="vKD-dg-aK4" id="0hO-wh-uD8"/>
                         <outlet property="passwordAU" destination="Tmn-4N-jGc" id="q2v-Zu-98l"/>
+                        <outlet property="passwordButton" destination="pd0-HV-Df7" id="1R2-yi-KmT"/>
+                        <outlet property="saveButton" destination="kYG-pF-Sv2" id="PXU-oZ-BBk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfq-PN-4jj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

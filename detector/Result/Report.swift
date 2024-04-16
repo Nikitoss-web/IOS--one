@@ -1,53 +1,75 @@
 import Foundation
 import UIKit
 
-class Report {
-    func outputResults(selectedResult: ViewResults?, nameLable: UILabel!, lastnameLable: UILabel!, ageLable: UILabel!, questions: inout [String], answers: inout [String], answerResults: inout [String], questionField: UITextView!) {
-        var textViewText = ""
-        if let result = selectedResult {
-            sortedQuestions(result.answers ?? "", answers: &answers, questions: &questions, answerResults: &answerResults)
-            nameLable.text = result.name
-            lastnameLable.text = result.lastname
-            ageLable.text = result.age
-            for i in 0..<questions.count {
-                textViewText += "\(questions[i])      \(answers[i])      \(answerResults[i])\n"
-            }
-            questionField.text = textViewText
-            print(textViewText)
-        } else {
-            print("Результат не установлен")
+protocol Reports {
+    func outputResults(selectedResult: ViewResults?) -> ReportsData?
+    func sortedQuestions(reportData: inout ReportsData, answers: String)
+    func answerNoYes(component: String) -> Bool
+    func answerTruthLie(component: String) -> Bool
+    func checkEmptiness(component: String) -> Bool
+}
+
+class Report: Reports {
+
+    func outputResults(selectedResult: ViewResults?) -> ReportsData? {
+        guard let result = selectedResult else {
+            return nil
         }
+
+        var reportData = ReportsData(name: result.name ?? "",
+                                     lastname: result.lastname ?? "",
+                                     age: result.age ?? "",
+                                     questions: [],
+                                     answers: [],
+                                     answerResults: [],
+                                     textViewText: "")
+
+        sortedQuestions(reportData: &reportData, answers: result.answers ?? "")
+
+        return reportData
     }
-    func sortedQuestions(_ answersText: String, answers: inout [String], questions: inout [String], answerResults: inout [String]) {
-        let components = answersText.components(separatedBy: .whitespacesAndNewlines)
+
+    func sortedQuestions(reportData: inout ReportsData, answers: String) {
+        let components = answers.components(separatedBy: .newlines)
         var currentQuestion = ""
+        
         for component in components {
-            if answerNoYes(component: component) {
-                answers.append(component)
-                if сheckEmptiness(component: currentQuestion) {
-                    questions.append(currentQuestion)
-                    currentQuestion = ""
-                }
-            } else if answerTruthLie(component: component) {
-                answerResults.append(component)
-            } else {
-                if сheckEmptiness(component: component) {
-                    currentQuestion += " " + component
+            let trimmedComponents = component.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
+            
+            for trimmedComponent in trimmedComponents {
+                let formattedComponent = trimmedComponent.trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                if answerNoYes(component: formattedComponent) {
+                    reportData.answers.append(formattedComponent)
+                    if !currentQuestion.isEmpty {
+                        reportData.questions.append(currentQuestion)
+                        currentQuestion = ""
+                    }
+                } else if answerTruthLie(component: formattedComponent) {
+                    reportData.answerResults.append(formattedComponent)
+                } else {
+                    currentQuestion += " " + formattedComponent
                 }
             }
         }
+        
         if !currentQuestion.isEmpty {
-            questions.append(currentQuestion)
+            reportData.questions.append(currentQuestion)
         }
+        reportData.textViewText = zip(zip(reportData.questions, reportData.answers), reportData.answerResults)
+            .map { "\($0.0) \($0.1) \($1) \n" }
+            .joined()
     }
-    func answerNoYes(component: String) -> Bool{
+    
+    func answerNoYes(component: String) -> Bool {
         return component.lowercased() == "no" || component.lowercased() == "yes"
     }
-    func answerTruthLie(component: String) -> Bool{
+
+    func answerTruthLie(component: String) -> Bool {
         return component.lowercased() == "truth" || component.lowercased() == "lie"
     }
-    func сheckEmptiness(component: String) -> Bool{
+
+    func checkEmptiness(component: String) -> Bool {
         return !component.isEmpty
     }
-    }
-   
+}

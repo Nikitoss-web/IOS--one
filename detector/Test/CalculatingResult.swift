@@ -1,8 +1,18 @@
 import Foundation
 import UIKit
 
-class CalculatingResult{
-    func maxArray(StringArray: [String]) -> Int?{
+protocol Calculating {
+    func maxArray(StringArray: [String]) -> Int?
+    func responseResult( array: [String], maxECG: Int) -> Bool
+}
+
+protocol Calcul {
+    func maxArray(StringArray: [String]) -> Int?
+}
+
+class CalculatingResult: Calculating, Calcul {
+    
+    func maxArray(StringArray: [String]) -> Int? {
         var intArray: [Int] = []
         for i in StringArray{
             if let intValue = Int(i){
@@ -11,7 +21,8 @@ class CalculatingResult{
         }
         return intArray.max() ?? 0
     }
-    func responseResult( array: [String], maxECG: Int) -> Bool{
+    
+    func responseResult( array: [String], maxECG: Int) -> Bool {
         guard let answerArray = maxArray(StringArray: array) else {return false}
         return answerArray <= maxECG
     }

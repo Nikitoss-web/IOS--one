@@ -2,19 +2,21 @@ import Foundation
 import Security
 
 final class KeychainManager {
+    
     static func save(password: Data, account: String) {
-            let query: [CFString: Any] = [
-                kSecClass: kSecClassGenericPassword,
-                kSecAttrAccount: account,
-                kSecAttrService: "YourServiceName",
-                kSecValueData: password,
-                kSecAttrAccessible: kSecAttrAccessibleWhenUnlocked
-            ]
-            let status = SecItemAdd(query as CFDictionary, nil)
-            if status != errSecSuccess {
-                print("Ошибка при сохранении данных в Keychain. Status code: \(status)")
-            }
+        let query: [CFString: Any] = [
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrAccount: account,
+            kSecAttrService: "YourServiceName",
+            kSecValueData: password,
+            kSecAttrAccessible: kSecAttrAccessibleWhenUnlocked
+        ]
+        let status = SecItemAdd(query as CFDictionary, nil)
+        if status != errSecSuccess {
+            print("Ошибка при сохранении данных в Keychain. Status code: \(status)")
         }
+    }
+    
     static func getPassword(for account: String) -> String? {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
@@ -34,14 +36,15 @@ final class KeychainManager {
             return nil
         }
     }
-            static func delete(account: String) {
-           let query: [CFString: Any] = [
-               kSecClass: kSecClassGenericPassword,
-               kSecAttrAccount: account
-           ]
-           let status = SecItemDelete(query as CFDictionary)
-           if status != errSecSuccess && status != errSecItemNotFound {
-               print("Failed to delete keychain item with account: \(account)")
-           }
-       }
+    
+    static func delete(account: String) {
+        let query: [CFString: Any] = [
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrAccount: account
+        ]
+        let status = SecItemDelete(query as CFDictionary)
+        if status != errSecSuccess && status != errSecItemNotFound {
+            print("Failed to delete keychain item with account: \(account)")
+        }
+    }
 }

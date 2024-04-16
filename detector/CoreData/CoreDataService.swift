@@ -13,9 +13,11 @@ final class CoreDataService {
         })
         return container
     }()
+    
     private var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
+    
     func saveQuestions(with tests: [Test]) {
         context.perform { [weak self] in
             guard let self = self else { return }
@@ -31,6 +33,7 @@ final class CoreDataService {
             self.saveContext()
         }
     }
+    
     func fetchQuestions() -> [String] {
         let fetchRequest: NSFetchRequest<NameTest> = NameTest.fetchRequest()
         
@@ -43,6 +46,7 @@ final class CoreDataService {
             return []
         }
     }
+    
     func isQuestionAlreadySavedTest(name_test: String, objectId: String) -> Bool {
         let fetchRequest: NSFetchRequest<NameTest> = NameTest.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: SearchFormatBases.name_testObjectId.rawValue, name_test, objectId)
@@ -55,6 +59,7 @@ final class CoreDataService {
             return false
         }
     }
+    
     func deleteOldTest(objectId: String) {
         let fetchRequest: NSFetchRequest<NameTest> = NameTest.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: SearchFormatBases.objectId.rawValue, objectId)
@@ -69,6 +74,7 @@ final class CoreDataService {
             print("Error deleting old questions: \(error)")
         }
     }
+    
     func saveNameTest(with questions1: QuestionResponse) {
         context.perform { [weak self] in
             guard let self = self else { return }
@@ -85,6 +91,7 @@ final class CoreDataService {
             self.saveContext()
         }
     }
+    
     func deleteOldQuestions(questions: String, ownerId: String) {
         let fetchRequest: NSFetchRequest<Questions> = Questions.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: SearchFormatBases.ownerId.rawValue, ownerId)
@@ -99,6 +106,7 @@ final class CoreDataService {
             print("Error deleting old questions: \(error)")
         }
     }
+    
     func isQuestionAlreadySaved(questions: String, ownerId: String) -> Bool {
         let fetchRequest: NSFetchRequest<Questions> = Questions.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: SearchFormatBases.questionsOwnerId.rawValue, questions, ownerId)
@@ -111,6 +119,7 @@ final class CoreDataService {
             return false
         }
     }
+    
     func fetchQuestionsFromCoreData(forownerId ownerId: String) -> [String]? {
         let fetchRequest: NSFetchRequest<Questions> = Questions.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: SearchFormatBases.ownerId.rawValue, ownerId)
@@ -129,6 +138,7 @@ final class CoreDataService {
             return nil
         }
     }
+    
     private func saveContext () {
             if context.hasChanges {
                 do {

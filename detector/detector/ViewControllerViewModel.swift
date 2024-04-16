@@ -1,11 +1,13 @@
 import UIKit
 class ViewControllerViewModel {
+    
     private weak var navigationController: UINavigationController?
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    func validationUserToken(){
+    func validationUserToken() {
         if let userToken =  KeychainManager.getPassword(for: AccountEnum.userToken.rawValue){
             if (!userToken.isEmpty){
                 let mainStoryboard = UIStoryboard(name: Screen.mainStoryboard.rawValue, bundle: nil)

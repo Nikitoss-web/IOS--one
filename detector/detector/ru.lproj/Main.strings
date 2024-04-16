@@ -1,0 +1,51 @@
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "92i-WS-bvQ"; */
+"92i-WS-bvQ.text" = "Password";
+
+/* Class = "UIButton"; configuration.title = "Авторизация"; ObjectID = "BwW-lH-Ghc"; */
+"BwW-lH-Ghc.configuration.title" = "Авторизация";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BwW-lH-Ghc"; */
+"BwW-lH-Ghc.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Cansel"; ObjectID = "Tux-SF-9aR"; */
+"Tux-SF-9aR.configuration.title" = "Cansel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Tux-SF-9aR"; */
+"Tux-SF-9aR.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "VcC-sK-pGw"; */
+"VcC-sK-pGw.text" = "Login";
+
+/* Class = "UIButton"; configuration.title = "Регистрация"; ObjectID = "YWX-7x-MYq"; */
+"YWX-7x-MYq.configuration.title" = "Регистрация";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "YWX-7x-MYq"; */
+"YWX-7x-MYq.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "ce9-fa-9dE"; */
+"ce9-fa-9dE.text" = "Email";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "ekf-lt-Isc"; */
+"ekf-lt-Isc.text" = "Name";
+
+/* Class = "UIButton"; configuration.title = "Save"; ObjectID = "kAl-jl-4N5"; */
+"kAl-jl-4N5.configuration.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kAl-jl-4N5"; */
+"kAl-jl-4N5.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Save"; ObjectID = "kYG-pF-Sv2"; */
+"kYG-pF-Sv2.configuration.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kYG-pF-Sv2"; */
+"kYG-pF-Sv2.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "pd0-HV-Df7"; */
+"pd0-HV-Df7.text" = "Password";
+
+/* Class = "UIButton"; configuration.title = "Cansel"; ObjectID = "yvQ-1G-pVI"; */
+"yvQ-1G-pVI.configuration.title" = "Cansel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "yvQ-1G-pVI"; */
+"yvQ-1G-pVI.normalTitle" = "Button";

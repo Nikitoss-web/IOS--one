@@ -88,6 +88,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="finishsButton" destination="8q5-Rr-YIW" id="MtL-my-e4o"/>
                         <outlet property="noButton" destination="zCp-yw-h6f" id="PCK-oJ-Qit"/>
                         <outlet property="resultView" destination="nBD-vG-5KJ" id="bxs-Bh-jgh"/>
                         <outlet property="textLable" destination="J7u-ng-8Vb" id="ULy-eq-Zl4"/>

@@ -77,6 +77,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoutsButton" destination="NV5-Bm-it8" id="79O-W3-Wax"/>
+                        <outlet property="resultButton" destination="me1-c3-VWP" id="1YH-Gv-SzV"/>
                         <outlet property="tableView" destination="unj-2r-dei" id="OcX-8n-dSF"/>
                     </connections>
                 </viewController>
@@ -141,6 +143,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="startButton" destination="d7z-fg-SWt" id="0ba-Nh-5eY"/>
                         <outlet property="tableView" destination="jOS-aK-VJh" id="QII-jb-qb7"/>
                     </connections>
                 </viewController>

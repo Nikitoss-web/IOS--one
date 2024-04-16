@@ -1,14 +1,18 @@
 import Foundation
 
 class TestUserViewModel {
-    weak var delegate: AllTestVCDelegate?
-    weak var delegats: AnswersDelegate?
     var fetchedQuestions: [String] = []
     var answerResults: [String] = []
     var answer: [String] = []
-    private let resultsRecording = RecordingResultsAPI()
-    func saveTestResult(name: String, lastname: String, age: String)
-    {
+    weak var delegate: AllTestVCDelegate?
+    weak var delegats: AnswersDelegate?
+    private let resultsRecording: RecordingResults
+    
+    init(resultsRecording: RecordingResults){
+         self.resultsRecording = resultsRecording
+     }
+    
+    func saveTestResult(name: String, lastname: String, age: String) {
         delegate?.settingsVCDidUpdateQuestion(fetchedQuestions: fetchedQuestions)
         delegats?.SavingResponses(answer: answer)
         delegats?.ResultAnswer(answers: answerResults)
@@ -21,6 +25,6 @@ class TestUserViewModel {
         let combinedString = combinedArray.joined(separator: " ")
         let result = TestResult(name: name, lastname: lastname, age: age, answers: combinedString)
         let recording = Recording(name: result.name, lastname: result.lastname, age: result.age, answers: result.answers, ownerId:  KeychainManager.getPassword(for: AccountEnum.userId.rawValue) ?? "")
-        resultsRecording.RecordingResult(recording: recording, userId: KeychainManager.getPassword(for: AccountEnum.userId.rawValue) ?? "", token:  KeychainManager.getPassword(for: AccountEnum.userToken.rawValue) ?? "")
-        }
+        resultsRecording.recordingResult(recording: recording, userId: KeychainManager.getPassword(for: AccountEnum.userId.rawValue) ?? "", token:  KeychainManager.getPassword(for: AccountEnum.userToken.rawValue) ?? "")
+    }
 }

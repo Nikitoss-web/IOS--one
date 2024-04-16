@@ -37,11 +37,11 @@
                 <constraint firstItem="51y-fQ-CE4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="190" id="Bkt-aw-mbO"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="51y-fQ-CE4" secondAttribute="trailing" constant="190" id="cQ4-rQ-lcL"/>
                 <constraint firstItem="2Cb-RJ-0NW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="181" id="hMM-En-9hb"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2Cb-RJ-0NW" secondAttribute="trailing" constant="181" id="iCL-OC-Mbx"/>
                 <constraint firstItem="2Cb-RJ-0NW" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="xCw-sv-A3a"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="stopButton" destination="2Cb-RJ-0NW" id="Pnq-wO-USs"/>
                 <outlet property="timerLabel" destination="51y-fQ-CE4" id="Yrh-zq-mTk"/>
             </connections>
             <point key="canvasLocation" x="149.61832061068702" y="-80.281690140845072"/>
@@ -49,7 +49,7 @@
     </objects>
     <resources>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -5,14 +5,21 @@ class ReportVC: UIViewController {
     @IBOutlet private weak var lastnameLable: UILabel!
     @IBOutlet private weak var ageLable: UILabel!
     @IBOutlet private weak var questionField: UITextView!
-    weak var delegate: AllTestVCDelegate?
-    var fetchedQuestions: [String] = []
-    var selectedResult: ViewResults?
-    weak var delegates: SelectedResultDelegatets?
-    private let viewModel = ReportViewModel()
-       override func viewDidLoad() {
-           super.viewDidLoad()
-           delegates?.ResultSelected(selectedResult: selectedResult)
-           viewModel.setupReport(selectedResult: selectedResult, nameLable: nameLable, lastnameLable: lastnameLable, ageLable: ageLable, questionField: questionField, question: &fetchedQuestions)
+    var viewModel = ReportViewModel(report: Report())
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        result()
+    }
+    
+    private func result() {
+           if let reportOutput = viewModel.setupReport() {
+               DispatchQueue.main.async {
+                   self.nameLable.text = reportOutput.name
+                   self.lastnameLable.text = reportOutput.lastName
+                   self.ageLable.text = reportOutput.age
+                   self.questionField.text = reportOutput.text
+               }
+           }
        }
 }
