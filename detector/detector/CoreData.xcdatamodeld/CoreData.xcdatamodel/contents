@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C64" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="NameTest" representedClassName="NameTest" syncable="YES">
+        <attribute name="name_test" optional="YES" attributeType="String"/>
+        <attribute name="objectId" optional="YES" attributeType="String"/>
+        <attribute name="test_number" optional="YES" attributeType="String"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Questions" inverseName="name_test" inverseEntity="Questions"/>
+    </entity>
+    <entity name="Questions" representedClassName="Questions" syncable="YES">
+        <attribute name="ownerId" optional="YES" attributeType="String"/>
+        <attribute name="questions" optional="YES" attributeType="String"/>
+        <relationship name="name_test" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NameTest" inverseName="questions" inverseEntity="NameTest"/>
+    </entity>
+    <entity name="Results" representedClassName="Results" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="String"/>
+        <attribute name="answers" optional="YES" attributeType="String"/>
+        <attribute name="lastname" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+</model>
